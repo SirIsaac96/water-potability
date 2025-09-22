@@ -61,7 +61,7 @@ def main():
     try:
         # Paths
         params_path = "params.yaml"
-        processed_data_path = "./data/processed/train_processed.csv"
+        processed_data_path = "./data/processed/train_processed_median.csv"
         model_name = "models/model.pkl"
 
         # Load parameters and processed training data

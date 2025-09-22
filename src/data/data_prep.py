@@ -17,8 +17,8 @@ def handle_missing_values(data):
     try:
         for column in data.columns:
             if data[column].isnull().any():
-                mean_value = data[column].mean()
-                data[column].fillna(mean_value, inplace=True)
+                median_value = data[column].median()
+                data[column].fillna(median_value, inplace=True)
         return data
     except Exception as e:
         raise Exception(f"Error filling missing values: {e}")
@@ -56,8 +56,8 @@ def main():
 
         # Save the processed datasets to new CSV files
         os.makedirs(processed_data_path)
-        save_data(train_processed_data, os.path.join(processed_data_path, "train_processed.csv"))
-        save_data(test_processed_data, os.path.join(processed_data_path, "test_processed.csv"))
+        save_data(train_processed_data, os.path.join(processed_data_path, "train_processed_median.csv"))
+        save_data(test_processed_data, os.path.join(processed_data_path, "test_processed_median.csv"))
     except Exception as e:
         raise Exception(f"An error occurred: {e}")
 
